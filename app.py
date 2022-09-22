@@ -1,7 +1,7 @@
 import requests
 from flask import Flask, render_template, request
 from flask_sqlalchemy import SQLAlchemy
-from .url import url
+from config.url import API_URL
 
 
 app = Flask(__name__)
@@ -27,6 +27,7 @@ def index():
 
     cities = City.query.all()
 
+    url = API_URL
 
     weather_data = []
 

@@ -10,6 +10,7 @@ url.py
 # Distribution / packaging
 .Python
 build/
+config/
 develop-eggs/
 dist/
 downloads/

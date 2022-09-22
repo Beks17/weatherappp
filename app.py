@@ -1,6 +1,7 @@
 import requests
 from flask import Flask, render_template, request
 from flask_sqlalchemy import SQLAlchemy
+from .url import url
 
 
 app = Flask(__name__)
@@ -27,12 +28,9 @@ def index():
     cities = City.query.all()
 
 
-    url = "https://api.openweathermap.org/data/2.5/weather?q={}&appid=bf263f99a106e2257a55defed91431c8"
-
     weather_data = []
 
     for city in cities:
-        
 
         r = requests.get(url.format(city.name)).json()
 
@@ -47,5 +45,5 @@ def index():
 
     return render_template("weather.html", weather_data=weather_data)
 
-# if __name__ = "__main__":
+
 

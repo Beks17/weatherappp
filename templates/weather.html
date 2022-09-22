@@ -5,29 +5,38 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather App</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
-<body>
-    <div>
-        <form method="POST">
-            <input class="input" name="city" type="text" placeholder="City Name">
-            <button class="button">Add city</button>
-        </form>
-    </div>
-    <div>
-        {% for weather in weather_data %}
+<body style="background-color: rgb(237, 245, 166);">
+    <br><br><br>
+    <div class="container text-center">
         <div>
-            <img src="https://openweathermap.org/img/w/{{ weather.icon }}.png" alt="Image">
+            <form method="POST">
+                <input class="input" name="city" type="text" placeholder="City Name">
+                <button class="button">Add city</button>
+            </form>
         </div>
+        <br>
         <div>
-            <p>
-                <span>{{ weather.city }}</span>
-                <br>
-                <span>{{ weather.temperature }} С</span>
-                <br>
-                <span>{{ weather.description }}</span>
-            </p>
+            {% for weather in weather_data %}
+            <div>    
+                <div style="display: inline-flex;">
+                    <div>
+                        <img src="https://openweathermap.org/img/w/{{ weather.icon }}.png" alt="Image">
+                    </div>
+                    <div>
+                        <p>
+                            <span>{{ weather.city }}</span>
+                            <br>
+                            <span>{{ weather.temperature }} С</span>
+                            <br>
+                            <span>{{ weather.description }}</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
         </div>
-        {% endfor %}
     </div>
 </body>
 </html>
